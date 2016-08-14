@@ -1,12 +1,12 @@
 # github-search-1.0
-vue demo
+vue demo with vue+vue-router+vuex
 
-Build Setup
+#Build Setup
 
-# install dependencies
+install dependencies
 npm install
 
-# serve in dev mode at localhost:8080
+serve in dev mode at localhost:8080
 npm run dev
 
 
