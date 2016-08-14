@@ -1,0 +1,44 @@
+{
+  "name": "github-search-1.0",
+  "version": "1.0.0",
+  "description": "a vue.js project",
+  "scripts": {
+    "dev": "webpack-dev-server --config build/webpack.client.config.js",
+    "start": "NODE_ENV=production gulp webpack-dev-server",
+    "build": "NODE_ENV=production webpack --config build/webpack.client.config.js --progress --hide-modules"
+  },
+  "devDependencies": {
+    "babel-core": "^6.3.17",
+    "babel-loader": "^6.2.0",
+    "babel-plugin-transform-runtime": "^6.3.13",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-runtime": "^5.8.34",
+    "css-loader": "^0.23.0",
+    "echarts": "^3.2.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.7",
+    "node-sass": "^3.8.0",
+    "open-browser-webpack-plugin": "0.0.2",
+    "sass-loader": "^3.2.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "vue-hot-reload-api": "^1.2.2",
+    "vue-html-loader": "^1.0.0",
+    "vue-loader": "^7.2.0",
+    "vue-router": "^0.7.13",
+    "vue-style-loader": "^1.0.0",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "vue": "^1.0.13"
+  },
+  "keywords": [
+    "demo",
+    "vue-loader"
+  ],
+  "author": "bigben15",
+  "license": "MIT"
+}
