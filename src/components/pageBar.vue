@@ -1,5 +1,5 @@
 <template>
-	<ul class="pagination">
+	<ul class="pageBar">
 	    <li @click="pre">
 	      <a>
 	        <span>&laquo;</span>
@@ -41,9 +41,30 @@
 	}
 </script>
 <style>
-	.pagination{
+	.pageBar{
 		display: block;
 		max-width: 200px;
 		margin: 20px auto;
+	}
+	.pageBar li{
+		display: inline;
+	}
+	.pageBar a{
+		position: relative;
+	    float: left;
+	    padding: 6px 12px;
+	    margin-left: -1px;
+	    line-height: 1.42857143;
+	    color: #337ab7;
+	    text-decoration: none;
+	    border: 1px solid #eee;
+	}
+	.pageBar a:first-child{
+		border-top-left-radius : 2px;
+		border-bottom-left-radius : 2px;
+	}
+	.pageBar a:last-child{
+		border-top-left-radius : 2px;
+		border-bottom-left-radius : 2px;
 	}
 </style>

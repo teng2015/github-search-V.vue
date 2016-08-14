@@ -17,7 +17,7 @@
 	export default{
 		data: function(){
 			return {
-				per_page:5,
+				per_page:6,
 				repo:{
 					stargazers_count: 0,
 					name: "",
@@ -29,45 +29,31 @@
 				total:0
 			}
 		},
-		props: ['org'],
 		methods:{
 			refresh:function(page){
 				var vm = this;
 				var search = this.$parent.$refs.search.search;
 				var	params = {
-                	org: this.org,
                 	search: search,
                 	page: page,
                 	per_page: this.per_page
             	}
                 loadRepo(params).then(function(data){
-                    vm.$set('repoList',data);
-                    vm.$set('total',data.length);
+                    vm.$set('repoList',data.items);
+                    vm.$set('total',data.items.length);
                 })
-			}
-		},
-		watch:{
-			'org':function(val,oldVal){
-				this.$parent.$refs.page.refresh(1);
 			}
 		},
 		ready:function(){
 			this.refresh(1);
 		}
-			
 	}
 
 	function loadRepo(params){
-		var sendJSON;
-		if(params.page==1 && params.search.length>0){
-			sendJSON = {query:params.search};
-		}else{
-			sendJSON = {query:params.search,page:params.page,per_page:params.per_page};
-		}
-		console.log(sendJSON);
+		var sendJSON = {q:(params.search.length>0?params.search+"\+":"")+"stars:>=0",sort:"stars",page:params.page,per_page:params.per_page};
 		return new Promise(function(resolve,reject){
 			$.ajax({
-	  			url: 'https://api.github.com/orgs/'+params.org+'/repos',
+	  			url: 'https://api.github.com/search/repositories',
 	          	type: "GET",
 	          	contentType: "application/json; charset=utf-8",
             	data: sendJSON,
@@ -101,8 +87,8 @@
 	}
 	.star{
 		position: absolute;
-		top: 6px;
-		right: 10px;
+		top: 10px;
+		right: 6px;
 		color: #888;
 		font-weight: bold;
 	}

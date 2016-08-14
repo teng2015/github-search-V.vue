@@ -5,21 +5,15 @@ var router = new VueRouter();
 
 router.map({
 	'/repo': {
-		component: require('../views/repo.vue')
+		component: require('../views/repo/repo.vue')
 	},
 	'/org': {
 		component: require('../views/org/org.vue')
 	}
-	// '/user': {
-	// 	component: require('../views/user.vue')
-	// },
-	// '/ranking': {
-	// 	component: require('../views/ranking.vue')
-	// }
 })
 
 router.redirect({
-  '*': '/org'
+  '*': '/repo'
 })
 
 module.exports = router;

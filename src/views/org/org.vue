@@ -1,20 +1,12 @@
 <template>
 	<div class="orgContainer">
 		<div  class="orgType">
-	      <div class="btn-toolbar">
-	        <div class="btn-group" >
-	          <button class="btn btn-default" @click="orgQuery(0,$event)">vuejs</button>
-	        </div>
-	        <div class="btn-group" >
-	          <button class="btn btn-default" @click="orgQuery(1,$event)">angular</button>
-	        </div>
-	        <div class="btn-group" >
-	          <button class="btn btn-default" @click="orgQuery(2,$event)">facebook</button>
-	        </div>
-	        <div class="btn-group" >
-	          <button class="btn btn-default" @click="orgQuery(3,$event)">webpack</button>
-	        </div>
-	      </div>
+	      	<div class="btn-toolbar">
+	          	<button @click="orgQuery(0,$event)">vuejs</button>
+	          	<button @click="orgQuery(1,$event)">angular</button>
+	          	<button @click="orgQuery(2,$event)">facebook</button>
+	          	<button @click="orgQuery(3,$event)">webpack</button>
+	     	 </div>
 	    </div>
 	    <search v-ref:search></search>
 	    <repo-list v-ref:list :org="org"></repo-list>
@@ -42,7 +34,6 @@
 						break;
 					case 3:
 						this.$set("org",'webpack');
-					// this.$refs.list.refresh(1,org)
 				}
 			}
 		},
@@ -62,12 +53,22 @@
 	  	margin-top: 8px;
 	  	margin-bottom: 12px;
 	  	padding-top: 10px;
-	  	padding-left: 0.5em;
+	  	padding-left: 0.2em;
 	  	background-color: #f5f5f5;
 	  	color: #fff;
 	}
 	.orgType button{
+		display: inline-block;
+		margin-left: 5px;
+		padding: 6px 12px;
   		border-radius: 0;
 	  	border: 0;
+	  	font-size: 14px;
+	  	line-height: 20px;
+	  	background-color: #fff;
+
+	}
+	.orgType button:hover{
+		color: #333;
 	}
 </style>

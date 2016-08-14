@@ -1,12 +1,9 @@
 <template>
 	<div class="clearfix">
-    	<div class="form-inline">
-          <div class="form-group">
-          	<span class="glyphicon glyphicon-search search" @click="query"></span>
-            <label for="repoName"></label>
-            <input type="text" class="form-control input-sm"  v-model="search" placeholder="find a repo" @keyup.enter="query">
-          </div>
-        </div>
+      	<div class="form-search">
+	      	<span class="glyphicon glyphicon-search search" @click="query"></span>
+	        <input type="text" v-model="search" placeholder="find a repo" @keyup.enter="query">
+      	</div>
     </div>
 </template>
 <script>
@@ -24,12 +21,18 @@
 	}
 </script>
 <style scoped>
-	.form-inline{
+	.form-search{
 		position: relative;
 		float: right;
 	}
-	.form-inline .input-sm{
+	.form-search input{
+		display: inline-block;
+		line-height: 1.4;
+		padding: 5px 10px;
 		border-radius: 0;
+		border: 1px solid #ccc;
+		box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+		transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 	}
 	.search{
 		position: absolute;
