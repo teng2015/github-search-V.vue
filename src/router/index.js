@@ -5,10 +5,10 @@ var router = new VueRouter();
 
 router.map({
 	'/repo': {
-		component: require('../views/repo/repo.vue')
+		component: require('../views/repo.vue')
 	},
 	'/org': {
-		component: require('../views/org/org.vue')
+		component: require('../views/org.vue')
 	}
 })
 

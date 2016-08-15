@@ -23,7 +23,7 @@
 		methods:{
 			refresh:function(page){
 				this.$set("page",page);
-	          	this.$parent.$refs.list.refresh(this.page);
+	          	this.$parent.load(this.page);
 	      	},
 	      	pre:function(){
 	      		if(this.page==1){
@@ -33,7 +33,7 @@
 	      		}
 	      	},
 	      	next:function(){
-	          	if(this.$parent.$refs.list.total!==0){
+	          	if(this.$parent.total!==0){
 	      			this.refresh(this.page+=1);
 	      		}
 	      	}

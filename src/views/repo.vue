@@ -1,38 +1,24 @@
 <template>
-	<ul class="repoList">
-		<li v-for="repo in repoList" v-cloak>
-			<div class="star">
-				<span>{{repo.language}}</span>&nbsp;&nbsp;&nbsp;
-				<span class="glyphicon glyphicon-star"></span>&nbsp;
-				{{repo.stargazers_count}}
-			</div>
-			<a :href="repo.html_url">{{repo.name}}</a>
-			<br/>
-			<span>{{repo.description}}</span>
-		</li>
-	</ul>
+	<div class="repoContainer">
+		<search v-ref:search></search>
+		<repo-list v-ref:list :repo-list="repoList", :per_page="per_page" :org-show="0"></repo-list>
+		<page-bar v-ref:page></page-bar>
+	</div>
 </template>
-
 <script>
 	export default{
-		data: function(){
-			return {
-				per_page:6,
-				repo:{
-					stargazers_count: 0,
-					name: "",
-					html_url: "",
-					description: ""
-				},
+		data:function(){
+			return{
+				per_page: 6,
 				repoList:[
 				],
 				total:0
 			}
 		},
 		methods:{
-			refresh:function(page){
+			load:function(page){
 				var vm = this;
-				var search = this.$parent.$refs.search.search;
+				var search = this.$refs.search.search;
 				var	params = {
                 	search: search,
                 	page: page,
@@ -44,13 +30,22 @@
                 })
 			}
 		},
-		ready:function(){
-			this.refresh(1);
+		ready: function(){
+			this.load(1);
+		},
+		components:{
+			'search': require("../components/search.vue"),
+			'repo-list': require("../components/repoList.vue"),
+			'page-bar': require("../components/pageBar.vue")
 		}
 	}
 
+
 	function loadRepo(params){
 		var sendJSON = {q:(params.search.length>0?params.search+"\+":"")+"stars:>=0",sort:"stars",page:params.page,per_page:params.per_page};
+		if(params.search.length>0){
+			delete(sendJSON.sort);
+		}
 		return new Promise(function(resolve,reject){
 			$.ajax({
 	  			url: 'https://api.github.com/search/repositories',
@@ -67,29 +62,9 @@
 		})
 	}
 </script>
-
-<style scoped>
-	.repoList{
-		margin: 0;
-		margin-bottom: 10px;
-		padding-left: 0;
-		list-style: none;
-	}
-	.repoList li{
-		position: relative;
-		padding: 16px 24px;
-		border-bottom: 1px solid #f5f5f5;
-		line-height: 20px;
-	}
-	.repoList li a{
-		font-size: 16px;
-		line-height: 1.2;
-	}
-	.star{
-		position: absolute;
-		top: 10px;
-		right: 6px;
-		color: #888;
-		font-weight: bold;
+<style scope>
+	.repoContainer{
+		background-color: #fff;
+		padding:  15px 24px 60px;
 	}
 </style>
