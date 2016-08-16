@@ -1,6 +1,6 @@
 <template>
-	<ul class="repoList">
-		<li v-for="repo in repoList" v-cloak>
+	<ul class="repoList" v-cloak>
+		<li v-for="repo in repoList">
 			<div class="star">
 				<span>{{repo.language}}</span>&nbsp;&nbsp;&nbsp;
 				<span class="glyphicon glyphicon-star"></span>&nbsp;
