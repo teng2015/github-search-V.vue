@@ -1,5 +1,5 @@
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 
 
 module.exports = {
@@ -15,6 +15,11 @@ module.exports = {
   module:{
     loaders: [
       {
+       test: /\.js$/,
+       exclude: /node_modules/,
+       loader: 'babel',
+      },
+      {
         test: /\.vue$/,
         exclude: /node_modules/,
         loader: 'vue'
@@ -29,18 +34,12 @@ module.exports = {
       }
     ]
   },
-  resolve: { 
-    alias: { 
-      // api: path.resolve(__dirname,'../src/store/api.js'),
-    } 
-  },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.app.js'),
     new webpack.ProvidePlugin({
         Vue: "vue",
         VueRouter: 'vue-router',
-        Vuex: "vuex",
-        $: "jquery"
+        Vuex: "vuex"
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')

@@ -1,15 +1,15 @@
-var gulp = require("gulp");
-var gutil = require("gulp-util");
-var webpack = require("webpack");
-var webpackDevServer = require("webpack-dev-server");
-var webpackConfig = require("./build/webpack.client.config.js");
+const gulp = require("gulp");
+const gutil = require("gulp-util");
+const webpack = require("webpack");
+const webpackDevServer = require("webpack-dev-server");
+const webpackConfig = require("./build/webpack.client.config.js");
 
 
-//use nginx,tomcat or other server
+//use nginx,tomcat or other servers
 gulp.task("webpack",function(callback){
 	webpack(webpackConfig,function(err,stats){
 		if(err){
-        	throw new gutil.PluginError("webpack-dev-server", err);
+        	throw new gutil.PluginError("webpack", err);
         }
         gutil.log("[webpack]", stats.toString({
             colors:true

@@ -6,7 +6,7 @@
 	</div>
 </template>
 <script>
-	module.exports = {
+	export default {
 		name: 'repo',
 		data: function(){
 			return {
@@ -16,8 +16,8 @@
 		computed: Vuex.mapGetters(['repoList']),
 		methods:{
 			load:function(){
-				var	params = {
-	            	search: this.$refs.search.search,
+				const params = {
+	            	search: this.$refs.search.content,
 	            	page: this.$refs.page.page,
 	            	per_page: this.per_page
 	        	}

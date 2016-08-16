@@ -12,7 +12,7 @@
 	</ul>
 </template>
 <script>
-	module.exports = {
+	export default{
 		data:function(){
 			return {
 				page: 1
@@ -60,9 +60,11 @@
 	.pageBar a:first-child{
 		border-top-left-radius : 2px;
 		border-bottom-left-radius : 2px;
+		cursor: pointer;
 	}
 	.pageBar a:last-child{
 		border-top-left-radius : 2px;
 		border-bottom-left-radius : 2px;
+		cursor: pointer;
 	}
 </style>

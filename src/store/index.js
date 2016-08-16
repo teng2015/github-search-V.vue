@@ -1,7 +1,7 @@
-var api = require('./api.js')
-Vue.use(Vuex);
+import api from './api.js'
+Vue.use(Vuex)
 
-var	store = new Vuex.Store({
+const store = new Vuex.Store({
 	state:{
 		total:1,
 		repoList: [

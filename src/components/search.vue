@@ -1,16 +1,23 @@
 <template>
 	<div class="clearfix">
       	<div class="form-search">
-	      	<span class="glyphicon glyphicon-search search" @click="query()"></span>
-	        <input type="text" v-model="search" placeholder="find a repo" @keyup.enter="query()">
+	      	<!-- <span class="glyphicon glyphicon-search search" @click="search"></span> -->
+	        <input type="text" v-model="content" placeholder="find a repo" @keyup.enter="search">
       	</div>
     </div>
 </template>
 <script>
-	module.exports = {
+	export default{
 		data: function(){
 			return {
-				search: ""
+				content: ""
+			}
+		},
+		methods: {
+			//just can't automatic trigger action in  parent component
+			//have to hand it
+			search:function(){
+				this.$emit('query')
 			}
 		}
 	}

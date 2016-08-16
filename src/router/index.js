@@ -1,6 +1,6 @@
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
-module.exports = new VueRouter({
+export default new VueRouter({
 	// mode: 'history',
 	routes: [
 		{
@@ -16,4 +16,4 @@ module.exports = new VueRouter({
 			redirect:"/repo"
 		}
 	]
-});
+})

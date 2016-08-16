@@ -2,10 +2,10 @@
 	<div class="orgContainer">
 		<div  class="orgType">
 	      	<div class="btn-toolbar">
-	          	<button @click="orgQuery(0,$event)">vuejs</button>
-	          	<button @click="orgQuery(1,$event)">angular</button>
-	          	<button @click="orgQuery(2,$event)">facebook</button>
-	          	<button @click="orgQuery(3,$event)">webpack</button>
+	          	<button  :class="org=='vuejs'?'tab':'ninja'"   @click="orgQuery(0,$event)">vuejs</button>
+	          	<button  :class="org=='angular'?'tab':'ninja'"   @click="orgQuery(1,$event)">angular</button>
+	          	<button  :class="org=='facebook'?'tab':'ninja'"   @click="orgQuery(2,$event)">facebook</button>
+	          	<button  :class="org=='webpack'?'tab':'ninja'"   @click="orgQuery(3,$event)">webpack</button>
 	     	 </div>
 	    </div>
 	    <search  ref="search" @query="load"></search>
@@ -14,7 +14,7 @@
 	</div>
 </template>
 <script>
-	module.exports = {
+	export default{
 		name: 'org',
 		data:function(){
 			return{
@@ -28,6 +28,7 @@
 				switch(name){
 					case 0:
 						this.org = 'vuejs';
+						this.show = 1
 						break;
 					case 1:
 						this.org = 'angular';
@@ -41,9 +42,9 @@
 				this.load();
 			},
 			load:function(){
-				var	params = {
+				const	params = {
 					org: this.org,
-	            	search: this.$refs.search.search,
+	            	search: this.$refs.search.content,
 	            	page: this.$refs.page.page,
 	            	per_page: this.per_page
 	        	}
@@ -73,6 +74,14 @@
 	  	background-color: #f5f5f5;
 	  	color: #fff;
 	}
+	.tab{
+		background-color: #42b782;
+		color: #fff;
+	}
+	.ninja{
+		background-color: #fff;
+		color: #333;
+	}
 	.orgType button{
 		display: inline-block;
 		margin-left: 5px;
@@ -81,10 +90,7 @@
 	  	border: 0;
 	  	font-size: 14px;
 	  	line-height: 20px;
-	  	background-color: #fff;
-
-	}
-	.orgType button:hover{
-		color: #333;
+	  	cursor: pointer;
+		outline: none;
 	}
 </style>
