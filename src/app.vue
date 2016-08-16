@@ -2,8 +2,8 @@
 	<div>
 	  	<div class="header">
 		    <div class="navbar">
-		    	<a v-link="{path: '/repo'}">repo</a>
-		        <a v-link="{path: '/org'}">org</a>
+		    	<router-link to="/repo">repo</router-link>
+		    	<router-link to="/org">org</router-link>
 		        <a class="pull-right"href="https://github.com/Fantasy15/github-search-1.0">built with vue.js</a>
 	  		</div>
 	  	</div>

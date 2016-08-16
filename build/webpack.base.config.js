@@ -5,7 +5,7 @@ var path = require('path');
 module.exports = {
   entry: {
     app:  './src/client-entry.js',
-    vendor: ['vue','vue-router']
+    vendor: ['vue','vue-router','vuex','jquery']
   },
   output: {
     path: path.resolve(__dirname,'../dist'),
@@ -31,7 +31,7 @@ module.exports = {
   },
   resolve: { 
     alias: { 
-      // echart: path.resolve(__dirname,'../src/lib/echarts.js')
+      // api: path.resolve(__dirname,'../src/store/api.js'),
     } 
   },
   plugins: [
@@ -39,6 +39,8 @@ module.exports = {
     new webpack.ProvidePlugin({
         Vue: "vue",
         VueRouter: 'vue-router',
+        Vuex: "vuex",
+        $: "jquery"
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')

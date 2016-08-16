@@ -8,84 +8,56 @@
 	          	<button @click="orgQuery(3,$event)">webpack</button>
 	     	 </div>
 	    </div>
-	    <search v-ref:search></search>
-	    <repo-list v-ref:list :repo-list="repoList" :per_page="per_page" :org-show="1"></repo-list>
-	    <page-bar v-ref:page></page-bar>
+	    <search  ref="search" @query="load"></search>
+	    <repo-list :repo-list="repoList" :org-show="1"></repo-list>
+	    <page-bar  ref="page" @query="load"></page-bar>
 	</div>
 </template>
 <script>
-	export default{
+	module.exports = {
+		name: 'org',
 		data:function(){
 			return{
 				per_page:5,
 				org: 'vuejs',
-				total: 0,
-				repoList:[
-				]
 			}
 		},
+		computed: Vuex.mapGetters(['repoList']),
 		methods:{
 			orgQuery:function(name,event){
 				switch(name){
 					case 0:
-						this.$set("org",'vuejs');
+						this.org = 'vuejs';
 						break;
 					case 1:
-						this.$set("org",'angular');
+						this.org = 'angular';
 						break;
 					case 2:
-						this.$set("org",'facebook');
+						this.org = 'facebook';
 						break;
 					case 3:
-						this.$set("org",'webpack');
+						this.org = 'webpack';
 				};
-				this.load(1);
+				this.load();
 			},
-			load:function(page){
-				var vm = this;
-				var search = this.$refs.search.search;
+			load:function(){
 				var	params = {
 					org: this.org,
-                	search: search,
-                	page: page,
-                	per_page: this.per_page
-            	}
-                loadRepo(params).then(function(data){
-                    vm.$set('repoList',data);
-                    vm.$set('total',data.length);
-                })
+	            	search: this.$refs.search.search,
+	            	page: this.$refs.page.page,
+	            	per_page: this.per_page
+	        	}
+				return this.$store.dispatch("loadRepoByOrg",params)
 			}
 		},
-		ready: function(){
-			this.load(1);
+		mounted :function(){
+			this.load();
 		},
 		components:{
-			'search': require('../components/search.vue'),
-			'repo-list': require('../components/repoList.vue'),
-			'page-bar': require('../components/pageBar.vue')
+			search: require('../components/search.vue'),
+			repoList: require('../components/repoList.vue'),
+			pageBar: require('../components/pageBar.vue')
 		}
-	}
-	function loadRepo(params){
-		var sendJSON;
-		if(params.page==1 && params.search.length>0){
-			sendJSON = {query:params.search};
-		}else{
-			sendJSON = {query:params.search,page:params.page,per_page:params.per_page};
-		}
-		return new Promise(function(resolve,reject){
-			$.ajax({
-	  			url: 'https://api.github.com/orgs/'+params.org+'/repos',
-	          	type: "GET",
-	          	contentType: "application/json; charset=utf-8",
-            	data: sendJSON,
-	        })
-	        .done(function(data) {
-	          	resolve(data);
-	        })
-	        .fail(function(e) {
-	          	alert(e)
-	        })
-		})
 	}
 </script>
 <style scoped>

@@ -6,7 +6,8 @@
 				<span class="glyphicon glyphicon-star"></span>&nbsp;
 				{{repo.stargazers_count}}
 			</div>
-			<a v-if="orgShow==0" :href="repo.owner.html_url">{{repo.owner.login}}/</a><a :href="repo.html_url">{{repo.name}}</a>
+			<a v-if="orgShow==0" :href="repo.owner.html_url">{{repo.owner.login}}/</a>
+			<a :href="repo.html_url">{{repo.name}}</a>
 			<br/>
 			<span>{{repo.description}}</span>
 		</li>
@@ -14,7 +15,7 @@
 </template>
 
 <script>
-	export default{
+	module.exports = {
 		data: function(){
 			return {
 				repo:{
@@ -25,7 +26,7 @@
 				}
 			}
 		},
-		props: ['repoList','per_page','orgShow'],
+		props: ['repoList','orgShow'],
 	}
 </script>
 

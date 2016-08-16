@@ -1,21 +1,16 @@
 <template>
 	<div class="clearfix">
       	<div class="form-search">
-	      	<span class="glyphicon glyphicon-search search" @click="query"></span>
-	        <input type="text" v-model="search" placeholder="find a repo" @keyup.enter="query">
+	      	<span class="glyphicon glyphicon-search search" @click="query()"></span>
+	        <input type="text" v-model="search" placeholder="find a repo" @keyup.enter="query()">
       	</div>
     </div>
 </template>
 <script>
-	export default{
+	module.exports = {
 		data: function(){
 			return {
 				search: ""
-			}
-		},
-		methods:{
-			query: function(){
-				this.$parent.$refs.page.refresh(1);
 			}
 		}
 	}

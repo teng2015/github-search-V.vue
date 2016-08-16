@@ -1,19 +1,19 @@
 Vue.use(VueRouter);
 
-// var router = new VueRouter({hashbang: false, history: true});
-var router = new VueRouter();
-
-router.map({
-	'/repo': {
-		component: require('../views/repo.vue')
-	},
-	'/org': {
-		component: require('../views/org.vue')
-	}
-})
-
-router.redirect({
-  '*': '/repo'
-})
-
-module.exports = router;
+module.exports = new VueRouter({
+	// mode: 'history',
+	routes: [
+		{
+			path:"/repo",
+			component:require('../views/repo.vue')
+		},
+		{	
+			path:"/org",
+			component:require('../views/org.vue')
+		},
+		{
+			path:"*", 
+			redirect:"/repo"
+		}
+	]
+});

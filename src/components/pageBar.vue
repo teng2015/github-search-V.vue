@@ -1,42 +1,40 @@
 <template>
 	<ul class="pageBar">
-	    <li @click="pre">
-	      <a>
-	        <span>&laquo;</span>
-	      </a>
+	    <li @click="refresh(0)">
+	      <a><span>&laquo;</span></a>
 	    </li>
-	    <li><a>{{page}}</a></li>
-	    <li @click="next">
-	      <a>
-	        <span>&raquo;</span>
-	      </a>
+	    <li>
+	    	<a>{{page}}</a>
+	    </li>
+	    <li @click="refresh(1)">
+	      <a><span>&raquo;</span></a>
 	    </li>
 	</ul>
 </template>
 <script>
-	export default{
-		data: function(){
+	module.exports = {
+		data:function(){
 			return {
-				page: 1,
+				page: 1
 			}
 		},
+		computed: Vuex.mapGetters(['total']),
 		methods:{
-			refresh:function(page){
-				this.$set("page",page);
-	          	this.$parent.load(this.page);
-	      	},
-	      	pre:function(){
-	      		if(this.page==1){
-	      			return
-	      		}else{
-	      			this.refresh(this.page-=1);
-	      		}
-	      	},
-	      	next:function(){
-	          	if(this.$parent.total!==0){
-	      			this.refresh(this.page+=1);
-	      		}
-	      	}
+			refresh:function(type){
+				switch(type){
+					case 0:
+						if(this.page!=1){
+							this.page-=1;
+						}
+						break;
+					case 1:
+						if(this.total!=0){
+							this.page+=1;
+						}
+						break;
+				}
+				this.$emit('query');
+			}
 		}
 	}
 </script>
