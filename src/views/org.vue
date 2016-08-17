@@ -2,10 +2,10 @@
 	<div class="orgContainer">
 		<div  class="orgType">
 	      	<div class="btn-toolbar">
-	          	<button  :class="org=='vuejs'?'tab':'ninja'"   @click="orgQuery(0,$event)">vuejs</button>
-	          	<button  :class="org=='angular'?'tab':'ninja'"   @click="orgQuery(1,$event)">angular</button>
-	          	<button  :class="org=='facebook'?'tab':'ninja'"   @click="orgQuery(2,$event)">facebook</button>
-	          	<button  :class="org=='webpack'?'tab':'ninja'"   @click="orgQuery(3,$event)">webpack</button>
+	          	<button  :class="org=='vuejs'?'tab':'ninja'"   @click="orgQuery(0)">vuejs</button>
+	          	<button  :class="org=='angular'?'tab':'ninja'"   @click="orgQuery(1)">angular</button>
+	          	<button  :class="org=='facebook'?'tab':'ninja'"   @click="orgQuery(2)">facebook</button>
+	          	<button  :class="org=='webpack'?'tab':'ninja'"   @click="orgQuery(3)">webpack</button>
 	     	 </div>
 	    </div>
 	    <search  ref="search" @query="load"></search>
