@@ -1,10 +1,10 @@
-<template>
-	<div class="repoContainer">
-		<search ref="search" @query="load"></search>
-		<repo-list  :repo-list="repoList" :org-show="0"></repo-list>
-		<page-bar ref="page" @query="load"></page-bar>
-	</div>
+<template lang="jade">
+	.repoContainer
+		search(ref='search',@query='load')
+		repo-list(:repo-list='repoList',:org-shiw='0')
+		page-bar(ref='page',@query='load')
 </template>
+
 <script>
 	export default {
 		name: 'repo',
@@ -17,10 +17,10 @@
 		methods:{
 			load () {
 				const params = {
-	            	query: this.$refs.search.content,
-	            	page: this.$refs.page.page,
-	            	per_page: this.per_page
-	        	}
+					query: this.$refs.search.content,
+					page: this.$refs.page.page,
+					per_page: this.per_page
+			}
 				return this.$store.dispatch('loadRepo',params)
 			}
 		},
@@ -38,6 +38,6 @@
 <style scope>
 	.repoContainer{
 		background-color: #fff;
-		padding:  15px 24px 60px;
+		padding: 15px 24px 60px;
 	}
 </style>

@@ -15,10 +15,10 @@ export default new Vuex.Store({
 			})
 		},
 		loadRepoByOrg ({commit},params) {
-            return api.loadRepoByOrg(params).then( (data) => {
-                commit('set_repoList',data)
-                commit('set_total',data.length)
-            })
+			return api.loadRepoByOrg(params).then( (data) => {
+				commit('set_repoList',data)
+				commit('set_total',data.length)
+			})
 		}
 	},
 	mutations:{

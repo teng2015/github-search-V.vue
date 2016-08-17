@@ -1,15 +1,11 @@
-<template>
-	<ul class="pageBar">
-	    <li @click="refresh(0)">
-	      <a><span>&laquo;</span></a>
-	    </li>
-	    <li>
-	    	<a>{{page}}</a>
-	    </li>
-	    <li @click="refresh(1)">
-	      <a><span>&raquo;</span></a>
-	    </li>
-	</ul>
+<template lang="jade">
+	ul.pageBar
+		li(@click='refresh(0)')
+			a: span &laquo;
+		li
+			a {{page}}
+		li(@click='refresh(1)')
+			a: span &raquo;
 </template>
 <script>
 	export default{
@@ -49,13 +45,13 @@
 	}
 	.pageBar a{
 		position: relative;
-	    float: left;
-	    padding: 6px 12px;
-	    margin-left: -1px;
-	    line-height: 1.42857143;
-	    color: #337ab7;
-	    text-decoration: none;
-	    border: 1px solid #eee;
+		float: left;
+		padding: 6px 12px;
+		margin-left: -1px;
+		line-height: 1.42857143;
+		color: #337ab7;
+		text-decoration: none;
+		border: 1px solid #eee;
 	}
 	.pageBar a:first-child{
 		border-top-left-radius : 2px;

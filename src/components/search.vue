@@ -1,16 +1,18 @@
-<template>
-	<div class="clearfix">
-      	<div class="form-search">
-	      	<!-- <span class="glyphicon glyphicon-search search" @click="search"></span> -->
-	        <input type="text" v-model="content" placeholder="find a repo" @keyup.enter="search">
-      	</div>
-    </div>
+<template lang="jade">
+	.clearfix
+		.form-search
+			input(
+				type='text',
+				v-model='content',
+				placeholder='find',
+				@keyup.enter='search',
+			)
 </template>
 <script>
 	export default{
 		data () { return { content: "" } },
 		methods: {
-			//just can't automatic trigger action in  parent component
+			//vue2.0 just can't automatic trigger action in  parent component
 			//have to hand it
 			search () { this.$emit('query') },
 		}
@@ -29,11 +31,5 @@
 		border: 1px solid #ccc;
 		box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 		transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-	}
-	.search{
-		position: absolute;
-		top: 8px;
-		right: 8px;
-		color: #888;
 	}
 </style>

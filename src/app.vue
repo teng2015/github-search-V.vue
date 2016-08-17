@@ -1,16 +1,12 @@
-<template>
-	<div>
-	  	<div class="header">
-		    <div class="navbar">
-		    	<router-link to="/repo">repo</router-link>
-		    	<router-link to="/org">org</router-link>
-		        <a class="pull-right"href="https://github.com/Fantasy15/github-search-1.0">built with vue.js</a>
-	  		</div>
-	  	</div>
-		<div class="container-sm">
-	      	<router-view></router-view>
-  		</div>
-	</div>
+<template lang="jade">
+	div
+		.header
+			.navbar
+				router-link(to='/repo') repo
+				router-link(to='/org') org
+				a.pull-right(href='https://github.com/Fantasy15/github-search-1.0') built with vue.js
+		.container-sm
+			router-view
 </template>
 <style>
 	body{
@@ -29,12 +25,12 @@
 	}
 	.clearfix:before{
 		display: table;
-    	content: "";
+		content: "";
 	}
 	.clearfix:after{
 		clear: both;
 		display: table;
-    	content: "";
+		content: "";
 	}
 	.header{
 		background-color: #42b782;

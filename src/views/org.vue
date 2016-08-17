@@ -1,26 +1,22 @@
-<template>
-	<div class="orgContainer">
-		<div  class="orgType">
-	      	<div class="btn-toolbar">
-	          	<button  :class="org=='vuejs'?'tab':'ninja'"   @click="orgQuery(0)">vuejs</button>
-	          	<button  :class="org=='angular'?'tab':'ninja'"   @click="orgQuery(1)">angular</button>
-	          	<button  :class="org=='facebook'?'tab':'ninja'"   @click="orgQuery(2)">facebook</button>
-	          	<button  :class="org=='webpack'?'tab':'ninja'"   @click="orgQuery(3)">webpack</button>
-	     	 </div>
-	    </div>
-	    <search  ref="search" @query="load"></search>
-	    <repo-list :repo-list="repoList" :org-show="1"></repo-list>
-	    <page-bar  ref="page" @query="load"></page-bar>
-	</div>
+<template lang="jade">
+	.orgContainer
+		.orgType
+			button(:class="org=='vuejs'?'tab':'ninja'", @click='orgQuery(0)') vuejs
+			button(:class="org=='angular'?'tab':'ninja'", @click='orgQuery(1)') angular
+			button(:class="org=='facebook'?'tab':'ninja'", @click='orgQuery(2)') facebook
+			button(:class="org=='webpack'?'tab':'ninja'", @click='orgQuery(3)') webpack
+		search(ref='search',@query='load')
+		repo-list(:repo-list='repoList',:org-show='1')
+		page-bar(ref='page',@query='load')
 </template>
 <script>
 	export default{
 		name: 'org',
-		data () { 
-			return { 
+		data () {
+			return {
 				per_page:5,
 				org: 'vuejs',
-			} 
+			}
 		},
 		computed: Vuex.mapGetters(['repoList']),
 		methods:{
@@ -44,10 +40,10 @@
 			load () {
 				const params = {
 					org: this.org,
-	            	query: this.$refs.search.content,
-	            	page: this.$refs.page.page,
-	            	per_page: this.per_page
-	        	}
+					query: this.$refs.search.content,
+					page: this.$refs.page.page,
+					per_page: this.per_page
+	 	}
 				return this.$store.dispatch("loadRepoByOrg",params)
 			}
 		},
@@ -67,12 +63,12 @@
 		padding:  15px 24px 60px;
 	}
 	.orgType{
-	  	margin-top: 8px;
-	  	margin-bottom: 12px;
-	  	padding-top: 10px;
-	  	padding-left: 0.2em;
-	  	background-color: #f5f5f5;
-	  	color: #fff;
+		margin-top: 8px;
+		margin-bottom: 12px;
+		padding-top: 10px;
+		padding-left: 0.2em;
+		background-color: #f5f5f5;
+		color: #fff;
 	}
 	.tab{
 		background-color: #42b782;
@@ -86,11 +82,11 @@
 		display: inline-block;
 		margin-left: 5px;
 		padding: 6px 12px;
-  		border-radius: 0;
-	  	border: 0;
-	  	font-size: 14px;
-	  	line-height: 20px;
-	  	cursor: pointer;
+		border-radius: 0;
+		border: 0;
+		font-size: 14px;
+		line-height: 20px;
+		cursor: pointer;
 		outline: none;
 	}
 </style>

@@ -1,19 +1,18 @@
-<template>
-	<ul class="repoList" v-cloak>
-		<li v-for="repo in repoList">
-			<div class="star">
-				<span>{{repo.language}}</span>&nbsp;&nbsp;&nbsp;
-				<span class="glyphicon glyphicon-star"></span>&nbsp;
-				{{repo.stargazers_count}}
-			</div>
-			<a v-if="orgShow==0" :href="repo.owner.html_url">{{repo.owner.login}}/</a>
-			<a :href="repo.html_url">{{repo.name}}</a>
-			<br/>
-			<span>{{repo.description}}</span>
-		</li>
-	</ul>
+<template lang="jade">
+	ul.repoList(v-cloak)
+		li(v-for='repo in repoList')
+			.star
+				span {{repo.language}}&nbsp;&nbsp;&nbsp;&nbsp;{{repo.stargazers_count}}
+			a(
+				v-if='orgShow==0',
+				href='repo.owner.html_url'
+			) {{repo.owner.login}}
+			a(
+				:href='repo.html_url'
+			) {{repo.name}} 
+			br
+			span {{repo.description}}
 </template>
-
 <script>
 	export default{
 		data () {
