@@ -21,7 +21,7 @@ export default {
 	        })
 		})
 	},
-	loadRepoByOrg ({query,page,per_page}) {
+	loadRepoByOrg ({org,query,page,per_page}) {
 		let sendJSON;
 		if(page==1 && query.length>0){
 			sendJSON = {query}
@@ -30,7 +30,7 @@ export default {
 		}
 		return new Promise( (resolve,reject) => {
 			ajax({
-	  			url: 'https://api.github.com/orgs/'+params.org+'/repos',
+	  			url: 'https://api.github.com/orgs/'+org+'/repos',
 	          	type: "GET",
 	          	contentType: "application/json; charset=utf-8",
             	data: sendJSON,
