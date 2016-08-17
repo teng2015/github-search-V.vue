@@ -8,23 +8,23 @@
 <script>
 	export default {
 		name: 'repo',
-		data: function(){
+		data () {
 			return {
 				per_page:6
 			}
 		},
 		computed: Vuex.mapGetters(['repoList']),
 		methods:{
-			load:function(){
+			load () {
 				const params = {
-	            	search: this.$refs.search.content,
+	            	query: this.$refs.search.content,
 	            	page: this.$refs.page.page,
 	            	per_page: this.per_page
 	        	}
 				return this.$store.dispatch('loadRepo',params)
 			}
 		},
-		mounted: function(){
+		mounted () {
 			this.load();
 		},
 		components:{

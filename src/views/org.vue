@@ -16,19 +16,18 @@
 <script>
 	export default{
 		name: 'org',
-		data:function(){
-			return{
+		data () { 
+			return { 
 				per_page:5,
 				org: 'vuejs',
-			}
+			} 
 		},
 		computed: Vuex.mapGetters(['repoList']),
 		methods:{
-			orgQuery:function(name,event){
+			orgQuery (name,event) {
 				switch(name){
 					case 0:
 						this.org = 'vuejs';
-						this.show = 1
 						break;
 					case 1:
 						this.org = 'angular';
@@ -38,20 +37,21 @@
 						break;
 					case 3:
 						this.org = 'webpack';
+						break;
 				};
 				this.load();
 			},
-			load:function(){
-				const	params = {
+			load () {
+				const params = {
 					org: this.org,
-	            	search: this.$refs.search.content,
+	            	query: this.$refs.search.content,
 	            	page: this.$refs.page.page,
 	            	per_page: this.per_page
 	        	}
 				return this.$store.dispatch("loadRepoByOrg",params)
 			}
 		},
-		mounted :function(){
+		mounted () {
 			this.load();
 		},
 		components:{

@@ -8,17 +8,11 @@
 </template>
 <script>
 	export default{
-		data: function(){
-			return {
-				content: ""
-			}
-		},
+		data () { return { content: "" } },
 		methods: {
 			//just can't automatic trigger action in  parent component
 			//have to hand it
-			search:function(){
-				this.$emit('query')
-			}
+			search () { this.$emit('query') },
 		}
 	}
 </script>

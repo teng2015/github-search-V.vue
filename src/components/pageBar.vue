@@ -13,14 +13,14 @@
 </template>
 <script>
 	export default{
-		data:function(){
+		data () {
 			return {
 				page: 1
 			}
 		},
 		computed: Vuex.mapGetters(['total']),
 		methods:{
-			refresh:function(type){
+			refresh (type) {
 				switch(type){
 					case 0:
 						if(this.page!=1){
