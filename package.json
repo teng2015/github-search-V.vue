@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "a vue.js project",
   "scripts": {
-    "dev": "webpack-dev-server --config build/webpack.client.config.js",
+    "dev": "webpack-dev-server --config build/webpack.client.config.js --history-api-fallback index.html",
     "start": "SET NODE_ENV=production && gulp webpack-dev-server",
     "build": "SET NODE_ENV=production && webpack --config build/webpack.client.config.js --progress"
   },
@@ -19,8 +19,10 @@
     "file-loader": "^0.9.0",
     "gulp": "^3.9.1",
     "gulp-util": "^3.0.7",
+    "node-sass": "^3.8.0",
     "open-browser-webpack-plugin": "0.0.2",
     "pug": "^2.0.0-beta5",
+    "sass-loader": "^4.0.0",
     "url-loader": "^0.5.7",
     "vue-loader": "^9.3.0",
     "vue-router": "^2.0.0-rc.3",
