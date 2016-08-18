@@ -1,7 +1,7 @@
-<template lang="jade">
+<template lang="pug">
 	.repoContainer
 		search(ref='search',@query='load')
-		repo-list(:repo-list='repoList',:org-shiw='0')
+		repo-list( :repo-list='repoList', :org-shiw='0')
 		page-bar(ref='page',@query='load')
 </template>
 

@@ -4,7 +4,7 @@ export default {
 	loadRepo ({query,page,per_page}) {
 		const sendJSON = {q:(query.length>0?query+"\+":"")+"stars:>=0",sort:"stars",page,per_page};
 		if(query.length>0){
-			delete(sendJSON.sort);
+			delete(sendJSON.sort)
 		}
 		return new Promise((resolve,reject) => {
 			ajax({
@@ -14,10 +14,10 @@ export default {
 	        	data: sendJSON,
 	        })
 	        .done(function(data) {
-	          	resolve(data);
+	          	resolve(data)
 	        })
 	        .fail(function(e) {
-	          	alert(e)
+	          	console.log(e)
 	        })
 		})
 	},
@@ -36,10 +36,10 @@ export default {
             	data: sendJSON,
 	        })
 	        .done(function(data) {
-	          	resolve(data);
+	          	resolve(data)
 	        })
 	        .fail(function(e) {
-	          	alert(e)
+	          	console.log(e)
 	        })
 		})
 	}

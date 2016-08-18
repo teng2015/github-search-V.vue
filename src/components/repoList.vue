@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 	ul.repoList(v-cloak)
 		li(v-for='repo in repoList')
 			.star

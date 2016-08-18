@@ -1,12 +1,12 @@
-<template lang="jade">
+<template lang="pug">
 	.orgContainer
 		.orgType
-			button(:class="org=='vuejs'?'tab':'ninja'", @click='orgQuery(0)') vuejs
-			button(:class="org=='angular'?'tab':'ninja'", @click='orgQuery(1)') angular
-			button(:class="org=='facebook'?'tab':'ninja'", @click='orgQuery(2)') facebook
-			button(:class="org=='webpack'?'tab':'ninja'", @click='orgQuery(3)') webpack
+			button( :class="org=='vuejs'?'tab':'ninja'", @click='orgQuery(0)') vuejs
+			button( :class="org=='angular'?'tab':'ninja'", @click='orgQuery(1)') angular
+			button( :class="org=='facebook'?'tab':'ninja'", @click='orgQuery(2)') facebook
+			button( :class="org=='webpack'?'tab':'ninja'", @click='orgQuery(3)') webpack
 		search(ref='search',@query='load')
-		repo-list(:repo-list='repoList',:org-show='1')
+		repo-list( :repo-list='repoList', :org-show='1')
 		page-bar(ref='page',@query='load')
 </template>
 <script>
@@ -43,7 +43,7 @@
 					query: this.$refs.search.content,
 					page: this.$refs.page.page,
 					per_page: this.per_page
-	 	}
+	 			}
 				return this.$store.dispatch("loadRepoByOrg",params)
 			}
 		},

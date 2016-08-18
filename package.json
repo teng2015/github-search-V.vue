@@ -8,6 +8,7 @@
     "build": "SET NODE_ENV=production && webpack --config build/webpack.client.config.js --progress"
   },
   "devDependencies": {
+    "autoprefixer": "^6.4.0",
     "babel-core": "^6.13.2",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.13.2",

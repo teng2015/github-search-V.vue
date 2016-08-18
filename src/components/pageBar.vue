@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 	ul.pageBar
 		li(@click='refresh(0)')
 			a: span &laquo;

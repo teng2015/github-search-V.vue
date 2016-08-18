@@ -9,9 +9,9 @@ export default new Vuex.Store({
 	},
 	actions:{
 		loadRepo ({commit},params) {
-			return api.loadRepo(params).then( (data) => {
-				commit('set_repoList',data.items)
-				commit('set_total',data.items.length)
+			return api.loadRepo(params).then( ({items}) => {
+				commit('set_repoList',items)
+				commit('set_total',items.length)
 			})
 		},
 		loadRepoByOrg ({commit},params) {

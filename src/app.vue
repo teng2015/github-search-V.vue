@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 	div
 		.header
 			.navbar
@@ -23,14 +23,11 @@
 		color: #23527c;
 		text-decoration: none;
 	}
-	.clearfix:before{
-		display: table;
-		content: "";
-	}
 	.clearfix:after{
 		clear: both;
 		display: table;
 		content: "";
+		overflow:hidden;
 	}
 	.header{
 		background-color: #42b782;
@@ -54,9 +51,6 @@
 	.container-sm{
 		max-width: 960px;
 		margin: 0 auto;
-	}
-	.clearfix:after{
-		clear: both;
 	}
 	[v-cloak]{
 		display: none
