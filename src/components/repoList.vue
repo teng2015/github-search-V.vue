@@ -1,5 +1,5 @@
 <template lang="pug">
-	ul.repoList(v-cloak)
+	ul.repoList
 		li(v-for='repo in repoList')
 			.star
 				span {{repo.language}}&nbsp;&nbsp;&nbsp;&nbsp;{{repo.stargazers_count}}
@@ -29,28 +29,32 @@
 	}
 </script>
 
-<style scoped>
+<style lang="sass" scoped>
 	.repoList{
 		margin: 0;
+		min-height: 280px;
 		margin-bottom: 10px;
 		padding-left: 0;
 		list-style: none;
-	}
-	.repoList li{
-		position: relative;
-		padding: 16px 24px;
-		border-bottom: 1px solid #f5f5f5;
-		line-height: 20px;
-	}
-	.repoList li a{
-		font-size: 16px;
-		line-height: 1.2;
-	}
-	.star{
-		position: absolute;
-		top: 6px;
-		right: 10px;
-		color: #888;
-		font-weight: bold;
+		li{
+			position: relative;
+			padding: 16px 24px;
+			border-bottom: 1px solid #f5f5f5;
+			line-height: 20px;
+			.star{
+				position: absolute;
+				top: 6px;
+				right: 10px;
+				color: #888;
+				font-weight: bold;
+			}
+			a{
+				font-size: 16px;
+				line-height: 1.2;
+				&:hover{
+					color: #23527c;
+				}
+			}
+		}
 	}
 </style>
