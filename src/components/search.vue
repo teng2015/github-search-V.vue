@@ -4,7 +4,7 @@
 			input(
 				type='text',
 				v-model='content',
-				placeholder='find',
+				placeholder='find a repo',
 				@keyup.enter='search',
 			)
 </template>
@@ -25,11 +25,15 @@
 	}
 	.form-search input{
 		display: inline-block;
+		width: 120px;
 		line-height: 1.4;
 		padding: 5px 10px;
 		border-radius: 0;
 		border: 1px solid #ccc;
-		box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
 		outline: none;
+		transition: width .3s ease;
+	}
+	input:focus{
+		width: 150px;
 	}
 </style>
