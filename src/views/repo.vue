@@ -43,7 +43,7 @@
 		}
 	}
 </script>
-<style lang="sass">
+<style lang="sass" scoped>
 	.slide-right-leave-active,.slide-left-enter{
 		opacity:0;
 		transform: translate(140px 0);
