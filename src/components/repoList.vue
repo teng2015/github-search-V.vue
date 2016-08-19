@@ -6,7 +6,7 @@
 			a(
 				v-if='orgShow==0',
 				href='repo.owner.html_url'
-			) {{repo.owner.login}}
+			) {{repo.owner.login}}/
 			a(
 				:href='repo.html_url'
 			) {{repo.name}} 
