@@ -18,22 +18,22 @@
 		}
 	}
 </script>
-<style scoped>
+<style lang="sass" scoped>
 	.form-search{
 		position: relative;
 		float: right;
-	}
-	.form-search input{
-		display: inline-block;
-		width: 120px;
-		line-height: 1.4;
-		padding: 5px 10px;
-		border-radius: 0;
-		border: 1px solid #ccc;
-		outline: none;
-		transition: width .3s ease;
-	}
-	input:focus{
-		width: 150px;
+		input{
+			display: inline-block;
+			width: 120px;
+			line-height: 1.4;
+			padding: 5px 10px;
+			border-radius: 0;
+			border: 1px solid #ccc;
+			outline: none;
+			transition: width .3s ease;
+			&:focus{
+				width: 150px;
+			}
+		}
 	}
 </style>
