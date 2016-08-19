@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = {
   entry: {
     app:  './src/client-entry.js',
-    vendor: ['vue','vue-router','vuex','jquery']
+    vendor: ['vue','vue-router','vuex']
   },
   output: {
     path: path.resolve(__dirname,'../dist'),
