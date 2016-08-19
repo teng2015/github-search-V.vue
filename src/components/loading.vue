@@ -9,7 +9,7 @@
 	}	
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 	$offset: 126;
 	$duration: 1.4s;
 	.box{
