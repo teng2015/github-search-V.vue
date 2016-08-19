@@ -9,6 +9,7 @@
 			router-view.container-sm
 </template>
 <style lang="sass">
+	$tone: #42b782;
 	body{
 		margin: 0;
 		font-size: 14px;
@@ -34,7 +35,7 @@
 		left: 0;
 		right: 0;
 		z-index: 999;
-		background-color: #42b782;
+		background-color: $tone;
 		color: #fff;
 		.navbar{
 			max-width: 960px;
