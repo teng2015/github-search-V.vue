@@ -4,8 +4,8 @@
   "description": "a vue.js project",
   "scripts": {
     "dev": "webpack-dev-server --config build/webpack.client.config.js --history-api-fallback index.html",
-    "start": "SET NODE_ENV=production && gulp webpack-dev-server",
-    "build": "SET NODE_ENV=production && webpack --config build/webpack.client.config.js --progress"
+    "start": "cross-env NODE_ENV=production gulp webpack-dev-server",
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.client.config.js --progress"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
