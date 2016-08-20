@@ -7,7 +7,7 @@
 			button( :class="org=='facebook'?'tab':'ninja'", @click='orgQuery(2)') facebook
 			button( :class="org=='webpack'?'tab':'ninja'", @click='orgQuery(3)') webpack
 		search(ref='search',@query='load')
-		repo-list( :repo-list='repoList', :org-show='1')
+		repo-list( :show="!loading", :repo-list='repoList', :org-show='1')
 		page-bar(ref='page',@query='load')
 </template>
 <script>
