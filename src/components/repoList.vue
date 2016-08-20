@@ -1,5 +1,5 @@
 <template lang="pug">
-	ul.repoList
+	ul.repoList( :class="{show:show}")
 		li(v-for='repo in repoList')
 			.star
 				span {{repo.language}}&nbsp;&nbsp;&nbsp;&nbsp;{{repo.stargazers_count}}
@@ -25,17 +25,20 @@
 				}
 			}
 		},
-		props: ['repoList','orgShow'],
+		props: ['repoList','orgShow','show'],
 	}
 </script>
 
 <style lang="sass" scoped>
+	$translate:140px;
 	.repoList{
 		margin: 0;
 		min-height: 280px;
 		margin-bottom: 10px;
 		padding-left: 0;
 		list-style: none;
+		opacity:0 ;
+		transition: opacity .13s ease-in;
 		li{
 			position: relative;
 			padding: 16px 24px;
@@ -56,5 +59,8 @@
 				}
 			}
 		}
+	}
+	.repoList.show{
+		opacity:1;
 	}
 </style>
