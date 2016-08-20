@@ -2,8 +2,7 @@
 	div
 		loading( :show="loading")
 		search(ref='search',@query='load')
-		transition( :name='transition')
-			repo-list.list( :repo-list='repoList', :org-show='0')
+		repo-list( :show='!loading', :repo-list='repoList', :org-show='0')
 		page-bar(ref='page',@query='load')
 </template>
 
@@ -12,7 +11,6 @@
 		name: 'repo',
 		data () {
 			return {
-				transition: 'slide-left',
 				loading: false,
 				per_page:6
 			}
@@ -27,7 +25,6 @@
 					per_page: this.per_page
 				}
 				this.$store.dispatch('loadRepo',params).then(() => {
-					this.transition = 'slide-right'
 					this.loading = false
 				})
 			}
@@ -43,13 +40,3 @@
 		}
 	}
 </script>
-<style lang="sass" scoped>
-	.slide-right-leave-active,.slide-left-enter{
-		opacity:0;
-		transform: translate(140px 0);
-	}
-	.slide-left-leave-active, .slide-right-enter{
-		opacity:0;
-		transform: translate(-140px, 0);
-	}
-</style>
