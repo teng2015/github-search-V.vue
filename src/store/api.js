@@ -1,5 +1,5 @@
 export default {
-	//ugly writing and rewrite later
+	//ugly writing and rewrite  JSONParam/restful later
 	loadRepo ({query,page,per_page}) {
 		let baseUrl = "https://api.github.com/search/repositories?q="
 			+(query.length>0?query+"+stars:>=0":"stars:>=0&sort=stars")
