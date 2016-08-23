@@ -15,7 +15,7 @@
 				per_page:6
 			}
 		},
-		computed: Vuex.mapGetters(['repoList','total']),
+		computed: Vuex.mapGetters(['repoList']),
 		methods:{
 			load () {
 				this.loading = true
