@@ -1,4 +1,4 @@
-<template lang="jade">
+<template lang="pug">
 	svg.box( :class="{show:show}", width='44px',height="44px",viewBox="0 0 44 44")
 		circle.inner(cx="22",cy="22",r="20",fill="none",stroke-width="4",stroke-linecap="round")
 </template>
