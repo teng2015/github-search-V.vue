@@ -5,7 +5,7 @@
 				span {{repo.language}}&nbsp;&nbsp;&nbsp;&nbsp;{{repo.stargazers_count}}
 			a(
 				v-if='orgShow==0',
-				href='repo.owner.html_url'
+				:href='repo.owner.html_url'
 			) {{repo.owner.login}}/
 			a(
 				:href='repo.html_url'
