@@ -21,18 +21,21 @@
 		transition: opacity .15s ease;
 		animation: rotator $duration linear infinite;
 		animation-play-state: paused;
-		.inner{
-			stroke: #42b782;
-			stroke-dasharray: $offset;
-			stroke-dashoffset:0;
-			transform-origin: center ;
-			animation:dash $duration ease-in-out infinite;
-		}
 	}
+
+	.inner{
+		stroke: #42b782;
+		stroke-dasharray: $offset;
+		stroke-dashoffset:0;
+		transform-origin: center ;
+		animation:dash $duration ease-in-out infinite;
+	}
+
 	.box.show{
 		opacity: 1;
 		animation-play-state: running;
 	}
+	
 	@keyframes rotator{
 		0%{
 			transform: scale(0.5) rotate(0deg)

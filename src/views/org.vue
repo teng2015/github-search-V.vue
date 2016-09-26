@@ -70,14 +70,6 @@
 		padding-top: 10px;
 		padding-left: 0.2em;
 		background-color: #f5f5f5;
-		.tab{
-			background-color: #42b782;
-			color: #fff;
-		}
-		.ninja{
-			background-color: #fff;
-			color: #333;
-		}
 		button{
 			display: inline-block;
 			margin-left: 5px;
@@ -89,5 +81,13 @@
 			cursor: pointer;
 			outline: none;
 		}
+	}
+	.tab{
+		background-color: #42b782;
+		color: #fff;
+	}
+	.ninja{
+		background-color: #fff;
+		color: #333;
 	}
 </style>

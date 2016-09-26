@@ -37,24 +37,24 @@
 		z-index: 999;
 		background-color: $tone;
 		color: #fff;
-		.navbar{
-			max-width: 960px;
-			margin: 0 auto;
-			a{
-				display: inline-block;
-				padding: 15px 15px;
-				font-size: 16px;
-				line-height: 20px;
-				color: rgba(255,255,255,.8);
-				transition: color .2s ease ;
-				&:hover,&.router-link-active{
-					color:#fff;
-				}
-			}
-			.pull-right{
-				float: right;
+	}
+	.navbar{
+		max-width: 960px;
+		margin: 0 auto;
+		a{
+			display: inline-block;
+			padding: 15px 15px;
+			font-size: 16px;
+			line-height: 20px;
+			color: rgba(255,255,255,.8);
+			transition: color .2s ease ;
+			&:hover,&.router-link-active{
+				color:#fff;
 			}
 		}
+	}
+	.pull-right{
+		float: right;
 	}
 	.container-sm{
 		max-width: 960px;
